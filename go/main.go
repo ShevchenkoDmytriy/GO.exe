@@ -72,12 +72,58 @@ func main() {
 	// 		}
 	// 	}
 	// }
-	num := 6
-	switch {
-	case num%2 == 0:
-		fmt.Println("/2")
-	case num%2 != 0:
-		fmt.Println("!/2")
+	//  num := 6
+	// switch {
+	//  case num%2 == 0:
+	// 	fmt.Println("/2")
+	// fallthtough
+	//  case num%2 != 0:
+	//  	fmt.Println("!/2")
+	//  }
+	// fmt.Println("+ - * / %")
+	// var action string
+	// fmt.Scan(&action)
+	// var a float64
+	// var b float64
+	// fmt.Println("Enter num ")
+	// fmt.Scan(&a)
+	// fmt.Println("Enter num ")
+	// fmt.Scan(&b)
+	// switch {
+	// case action == "+":
+	// 	fmt.Println(a + b)
+	// case action == "-":
+	// 	fmt.Println(a - b)
+	// case action == "/":
+	// 	fmt.Println(a / b)
+	// case action == "*":
+	// 	fmt.Println(a * b)
+	// }
+	// names := []string{"q", "b", "c"}
+	// for i := 0; i < len(names); i++ {
+	// 	fmt.Println(names[i])
+	// }
+	// var res float64 = 0
+	// num := []float64{1, 2, 3, 4, 5, 6}
+	// for i := 0; i < len(num); i++ {
 
+	// 	res += num[i]
+
+	// }
+	// fmt.Println(res)
+	// array := [][]int{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
+	// for i := 0; i < len(array); i++ {
+	// 	for j := 0; j < len(array[i]); j++ {
+	// 		fmt.Println(array[i][j])
+	// 	}
+	// }
+	// slice := []int{1, 2, 3, 4, 5, 6}
+	// slice = append(slice, 2)
+	// sort.Ints(slice)
+	// fmt.Println(slice)
+	slice := []int{1, 2, 3, 4, 5, 6}
+	for _, el := range slice {
+		fmt.Printf("%d\t", el)
 	}
+
 }
