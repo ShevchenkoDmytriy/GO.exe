@@ -1,6 +1,9 @@
-// package main
+package main
 
-// import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 // func main() {
 // fmt.Println("Hello World!");
@@ -136,9 +139,6 @@
 // fmt.Printf(fmt.Sprint(money))
 
 // }
-package main
-
-import "fmt"
 
 // func Print() {
 // 	fmt.Printf("1 2 3 4 5 6")
@@ -160,21 +160,132 @@ import "fmt"
 // func squar(Function func(int) int) {
 // 	fmt.Println(Function(25))
 // }
-func test(x string) func() {
-	return func() {
-		fmt.Println(x)
+// func test(x string) func() {
+// 	return func() {
+// 		fmt.Println(x)
+// 	}
+// }
+// func main() {
+// a := func() {
+// 	fmt.Println("1")
+// }
+// a()
+// res := func(x int) int {
+// 	return x * x
+// }
+// squar(res)
+// a := test("qfqf")
+// a()
+// test("qfqf")()
+// }
+// func change(str *string) {
+// 	*str = "qwe"
+// }
+// func main() {
+// 	s := "rty"
+// 	fmt.Println(s)
+// 	change(&s)
+// 	fmt.Println(s)
+// }
+// type User struct {
+// 	name    string
+// 	age     int
+// 	pasword string
+// }
+
+// func Print(u User) {
+// 	fmt.Println(u)
+// }
+// func PrintName(u User) {
+// 	fmt.Println(u.name)
+// }
+// func Switch(u *User, name string) {
+// 	u.name = name
+// }
+// func main() {
+// 	// var user User = User{"qfqf", 12, "qfqf"}
+// 	user := User{"qfqf", 12, "qfqf"}
+// 	fmt.Println(user)
+// 	Print(user)
+// 	PrintName(user)
+// 	Switch(&user, "qqqq")
+// 	PrintName(user)
+// }
+// type Number struct {
+// 	num1 int
+// 	num2 int
+// }
+// type NI interface {
+// 	Sum()
+// }
+
+// func (n Number) Sum() {
+// 	fmt.Println(n.num1 + n.num2)
+// }
+
+//	func main() {
+//		var a NI
+//		num := Number{5, 1}
+//		a = num
+//		a.Sum()
+//	}
+// func main() {
+// 	data := []byte("Hello Lol")
+// 	e := ioutil.WriteFile("text.txt", data, 0600)
+// 	if e != nil {
+// 		fmt.Println("Error")
+// 	}
+// 	file_data, err := ioutil.ReadFile("text.txt")
+// 	if err != nil {
+// 		fmt.Println("Error", err)
+// 	}
+// 	fmt.Println(string(file_data))
+
+//		// os.Remove("text.txt")
+//	}
+//
+//	func main() {
+//		ch := make(chan int)
+//		ch2 := make(chan string)
+//		go say("qwe", ch, ch2)
+//		time.Sleep(2 * time.Second)
+//		go say("qwe", ch, ch2)
+//		time.Sleep(2 * time.Second)
+//		num := <-ch
+//		str := <-ch2
+//		fmt.Println(num, str)
+//	}
+//
+//	func say(str string, ch chan int, ch2 chan string) {
+//		fmt.Println(str)
+//		ch <- 4
+//		ch2 <- "qwwe"
+//	}
+//
+//	func main() {
+//		ch := make(chan int)
+//		go Print(ch)
+//		for i := range ch {
+//			fmt.Println(i)
+//		}
+//	}
+func Print(ch chan int) {
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+		ch <- i
 	}
+	close(ch)
 }
 func main() {
-	// a := func() {
-	// 	fmt.Println("1")
-	// }
-	// a()
-	// res := func(x int) int {
-	// 	return x * x
-	// }
-	// squar(res)
-	// a := test("qfqf")
-	// a()
-	test("qfqf")()
+	file, err := os.Create("Text.txt")
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	defer file.Close()
+	data := "Hello"
+	file.WriteString(data)
+	file1, _ := os.ReadFile("Text.txt")
+	fmt.Println(string(file1))
+	os.Remove("Text.txt")
 }
